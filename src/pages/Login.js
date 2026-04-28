@@ -22,7 +22,7 @@ const Login = ({ onLogin }) => {
   };
 
   const handleRegister = async () => {
-    const res = await fetch("https://app-builder-backend-w1v2.onrender.com/register", {
+    const res = await fetch("https://app-builder-backend-w1v2.onrender.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

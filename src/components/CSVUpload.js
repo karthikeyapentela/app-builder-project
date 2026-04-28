@@ -23,7 +23,7 @@ const CSVUpload = ({ entityName, onUpload }) => {
             completed: row.completed === "true",
           };
 
-          await fetch(`https://app-builder-backend-w1v2.onrender.com/${entityName}`, {
+          await fetch(`https://app-builder-backend-w1v2.onrender.com/${entityName}/${entityName}`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
