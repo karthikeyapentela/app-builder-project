@@ -11,7 +11,7 @@ const Dashboard = () => {
   // Fetch data from backend
   const fetchData = async () => {
     try {
-      const res = await fetch("http://localhost:5000/tasks");
+      const res = await fetch("https://app-builder-backend-w1v2.onrender.com/tasks");
       const result = await res.json();
       setData(result);
     } catch (error) {
@@ -22,7 +22,7 @@ const Dashboard = () => {
   // Submit form data
   const handleSubmit = async (formData) => {
     try {
-      await fetch("http://localhost:5000/tasks", {
+      await fetch("https://app-builder-backend-w1v2.onrender.com/tasks", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

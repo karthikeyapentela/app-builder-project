@@ -5,7 +5,7 @@ const Login = ({ onLogin }) => {
   const [password, setPassword] = useState("");
 
   const handleLogin = async () => {
-    const res = await fetch("http://localhost:5000/login", {
+    const res = await fetch("https://app-builder-backend-w1v2.onrender.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -22,7 +22,7 @@ const Login = ({ onLogin }) => {
   };
 
   const handleRegister = async () => {
-    const res = await fetch("http://localhost:5000/register", {
+    const res = await fetch("https://app-builder-backend-w1v2.onrender.com/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
