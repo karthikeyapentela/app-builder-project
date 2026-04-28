@@ -73,3 +73,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 # app-builder-project
 Config-driven full-stack app builder using React and Node.js
 >>>>>>> 095c2451bc47295c6ff1f9c33058e99fc461ca78
+>>>>>>> Updated project
+>>>>>>> 
