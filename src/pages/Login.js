@@ -4,8 +4,11 @@ const Login = ({ onLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const BASE_URL = "https://app-builder-backend-w1v2.onrender.com";
+
+  // 🔐 LOGIN
   const handleLogin = async () => {
-    const res = await fetch("https://app-builder-backend-w1v2.onrender.com/login", {
+    const res = await fetch(`${BASE_URL}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -21,8 +24,9 @@ const Login = ({ onLogin }) => {
     }
   };
 
+  // 🆕 REGISTER (FIXED HERE)
   const handleRegister = async () => {
-    const res = await fetch("https://app-builder-backend-w1v2.onrender.com/login", {
+    const res = await fetch(`${BASE_URL}/register`, {  // ✅ FIX
       method: "POST",
       headers: {
         "Content-Type": "application/json",

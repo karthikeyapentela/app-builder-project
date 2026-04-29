@@ -4,14 +4,16 @@ import FormRenderer from "../components/FormRenderer";
 import TableRenderer from "../components/TableRenderer";
 import CSVUpload from "../components/CSVUpload";
 
+const BASE_URL = "https://app-builder-backend-w1v2.onrender.com";
+
 const Dashboard = () => {
   const entity = config.entities[0];
   const [data, setData] = useState([]);
 
-  // Fetch data from backend
+  // 📥 Fetch data from backend
   const fetchData = async () => {
     try {
-      const res = await fetch("https://app-builder-backend-w1v2.onrender.com/tasks");
+      const res = await fetch(`${BASE_URL}/${entity.name}`);
       const result = await res.json();
       setData(result);
     } catch (error) {
@@ -19,10 +21,10 @@ const Dashboard = () => {
     }
   };
 
-  // Submit form data
+  // 📤 Submit form data
   const handleSubmit = async (formData) => {
     try {
-      await fetch("https://app-builder-backend-w1v2.onrender.com/tasks", {
+      await fetch(`${BASE_URL}/${entity.name}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,14 +32,14 @@ const Dashboard = () => {
         body: JSON.stringify(formData),
       });
 
-      alert("Data added successfully ✅"); // notification
+      alert("Data added successfully ✅");
       fetchData();
     } catch (error) {
       console.error("Error saving data:", error);
     }
   };
 
-  // Load data on page load
+  // 🔄 Load data on page load
   useEffect(() => {
     fetchData();
   }, []);
@@ -47,21 +49,22 @@ const Dashboard = () => {
       <h1 style={styles.title}>{config.appName}</h1>
 
       <div style={styles.card}>
-        {/* CSV Upload */}
+        {/* 📂 CSV Upload */}
         <CSVUpload entityName={entity.name} onUpload={fetchData} />
 
-        {/* Dynamic Form */}
+        {/* 🧾 Dynamic Form */}
         <FormRenderer entity={entity} onSubmit={handleSubmit} />
       </div>
 
       <div style={styles.card}>
-        {/* Dynamic Table */}
+        {/* 📊 Dynamic Table */}
         <TableRenderer entity={entity} data={data} />
       </div>
     </div>
   );
 };
 
+// 🎨 Styles
 const styles = {
   container: {
     maxWidth: "600px",
